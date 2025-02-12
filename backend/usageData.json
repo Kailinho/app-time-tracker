@@ -1,0 +1,56 @@
+{
+  "Electron": {
+    "activeTime": 44.35100000000001,
+    "backgroundTime": 367.5839999999993,
+    "lastActive": 1739329992524
+  },
+  "Visual Studio Code": {
+    "activeTime": 167.10199999999998,
+    "backgroundTime": 244.83299999999983,
+    "lastActive": 1739330296646
+  },
+  "Opera GX Internet Browser": {
+    "activeTime": 184.38699999999986,
+    "backgroundTime": 227.5479999999999,
+    "lastActive": 1739330287572
+  },
+  "Discord": {
+    "activeTime": 0,
+    "backgroundTime": 411.93499999999915,
+    "lastActive": null
+  },
+  "Windows Explorer": {
+    "activeTime": 0,
+    "backgroundTime": 411.93499999999915,
+    "lastActive": null
+  },
+  "Spotify": {
+    "activeTime": 13.085,
+    "backgroundTime": 3.0249999999999995,
+    "lastActive": 1739329906843
+  },
+  "history": {
+    "2025-02-12": {
+      "Visual Studio Code": {
+        "activeTime": 339.3399999999996,
+        "backgroundTime": 513.5139999999989
+      },
+      "Opera GX Internet Browser": {
+        "activeTime": 268.9289999999997,
+        "backgroundTime": 583.9249999999986
+      },
+      "Discord": {
+        "activeTime": 0,
+        "backgroundTime": 852.8539999999969
+      },
+      "Windows Explorer": {
+        "activeTime": 1.004,
+        "backgroundTime": 851.8499999999968
+      },
+      "Electron": {
+        "activeTime": 241.56999999999982,
+        "backgroundTime": 453.1589999999991
+      }
+    }
+  }
+}
