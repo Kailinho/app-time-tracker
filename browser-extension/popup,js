@@ -1,0 +1,14 @@
+document.addEventListener("DOMContentLoaded", () => {
+    chrome.storage.local.get("websiteUsage", (data) => {
+      console.log("Stored Data:", data); // ✅ Debugging log
+      const tableBody = document.querySelector("#usageTable tbody");
+      tableBody.innerHTML = "";
+  
+      Object.entries(data.websiteUsage || {}).forEach(([domain, seconds]) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `<td>${domain}</td><td>${Math.floor(seconds / 60)} min</td>`;
+        tableBody.appendChild(row);
+      });
+    });
+  });
+  
