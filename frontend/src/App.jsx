@@ -50,7 +50,7 @@ function App() {
       <h1 className="text-3xl font-bold mb-4">Usage Reports</h1>
 
       {/* ✅ Report Toggle Buttons */}
-      <div className="flex gap-4 mb-6">
+      <div className="flex gap-4 mt-6 mb-6">
         <button
           onClick={() => setReportPeriod(1)}
           className={`px-4 py-2 rounded ${reportPeriod === 1 ? "bg-blue-500" : "bg-gray-700"} hover:bg-blue-400`}

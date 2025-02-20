@@ -51,6 +51,28 @@
         "activeTime": 241.56999999999982,
         "backgroundTime": 453.1589999999991
       }
+    },
+    "2025-02-13": {
+      "Electron": {
+        "activeTime": 62.537000000000006,
+        "backgroundTime": 462.81999999999897
+      },
+      "Visual Studio Code": {
+        "activeTime": 275.6299999999998,
+        "backgroundTime": 279.9129999999996
+      },
+      "Opera GX Internet Browser": {
+        "activeTime": 305.9959999999994,
+        "backgroundTime": 483.2469999999989
+      },
+      "Windows Explorer": {
+        "activeTime": 2.018,
+        "backgroundTime": 501.2179999999988
+      },
+      "Discord": {
+        "activeTime": 15.083999999999998,
+        "backgroundTime": 486.1339999999989
+      }
     }
   }
 }

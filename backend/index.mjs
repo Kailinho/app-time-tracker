@@ -4,6 +4,7 @@ import { fileURLToPath } from "url";
 import { activeWindow, openWindows } from "active-win";
 import fs from "fs";
 
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const DATA_FILE = path.join(__dirname, "usageData.json"); // ✅ File to store usage history
@@ -36,6 +37,18 @@ app.whenReady().then(() => {
   });
 
   mainWindow.loadURL("http://localhost:5173");
+
+  app.setLoginItemSettings({
+    openAtLogin: true, // Start app at boot
+    path: process.execPath, // Path to the executable
+  });
+});
+
+
+app.on("window-all-closed", () => {
+  if (process.platform !== "darwin") {
+    app.quit();
+  }
 });
 
 
@@ -53,7 +66,7 @@ const getCurrentDate = () => {
 
 let lastUpdateTime = Date.now();
 
-// ✅ Track window usage every second
+
 setInterval(async () => {
   try {
     const allWindows = await openWindows();
@@ -66,10 +79,9 @@ setInterval(async () => {
     if (!appUsage.history) appUsage.history = {};
     if (!appUsage.history[today]) appUsage.history[today] = {};
 
+
     allWindows.forEach(win => {
       const appName = win.owner.name || "Unknown";
-
-      // ✅ Initialize app tracking for today if not present
       if (!appUsage.history[today][appName]) {
         appUsage.history[today][appName] = { activeTime: 0, backgroundTime: 0 };
       }
