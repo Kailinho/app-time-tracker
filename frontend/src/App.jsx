@@ -3,13 +3,13 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } fro
 
 function App() {
   const [usageReport, setUsageReport] = useState({});
+  const [websiteUsage, setWebsiteUsage] = useState({});
   const [reportPeriod, setReportPeriod] = useState(1); // 1 = Daily, 7 = Weekly, 30 = Monthly
 
   useEffect(() => {
     if (window.electron) {
-      window.electron.onUpdateUsageReport((data) => {
-        setUsageReport(data);
-      });
+      window.electron.onUpdateUsageReport((data) => setUsageReport(data));
+      window.electron.onUpdateWebsiteReport((data) => setWebsiteUsage(data));
     }
   }, []);
 
@@ -19,31 +19,31 @@ function App() {
     return `${hours}h ${minutes}m`;
   };
 
-  const getChartData = (period) => {
-    const dates = Object.keys(usageReport).slice(-period);
-
+  const getChartData = (data, period) => {
+    const dates = Object.keys(data).slice(-period);
     const aggregatedData = {};
 
     dates.forEach(date => {
-      Object.entries(usageReport[date] || {}).forEach(([app, times]) => {
-        if (!aggregatedData[app]) {
-          aggregatedData[app] = { app, activeTime: 0, backgroundTime: 0 };
+      Object.entries(data[date] || {}).forEach(([key, times]) => {
+        if (!aggregatedData[key]) {
+          aggregatedData[key] = { name: key, activeTime: 0, backgroundTime: 0 };
         }
-        aggregatedData[app].activeTime += times.activeTime;
-        aggregatedData[app].backgroundTime += times.backgroundTime;
+        aggregatedData[key].activeTime += times.activeTime || times;
+        aggregatedData[key].backgroundTime += times.backgroundTime || 0;
       });
     });
 
     return Object.values(aggregatedData).map(entry => ({
-      app: entry.app,
-      activeTime: entry.activeTime / 60, // Convert to minutes for chart bars
-      backgroundTime: entry.backgroundTime / 60, // Convert to minutes for chart bars
-      activeTimeLabel: formatTimeHHMM(entry.activeTime), // Store formatted time for tooltips
+      name: entry.name,
+      activeTime: entry.activeTime / 60,
+      backgroundTime: entry.backgroundTime / 60,
+      activeTimeLabel: formatTimeHHMM(entry.activeTime),
       backgroundTimeLabel: formatTimeHHMM(entry.backgroundTime),
     }));
   };
 
-  const chartData = getChartData(reportPeriod);
+  const appChartData = getChartData(usageReport, reportPeriod);
+  const websiteChartData = getChartData(websiteUsage, reportPeriod);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white p-4">
@@ -71,25 +71,33 @@ function App() {
         </button>
       </div>
 
-      {/* ✅ Usage Report Chart */}
+      {/* ✅ App Usage Chart */}
+      <h2 className="text-xl font-semibold mt-4">App Usage</h2>
       <ResponsiveContainer width="90%" height={300}>
-        <BarChart data={chartData}>
-          <XAxis dataKey="app" angle={-45} textAnchor="end" interval={0} />
+        <BarChart data={appChartData}>
+          <XAxis dataKey="name" angle={-45} textAnchor="end" interval={0} />
           <YAxis label={{ value: "Minutes", angle: -90, position: "insideLeft" }} />
-          <Tooltip
-            formatter={(value, name, { payload }) => {
-              if (!payload) return value;
-              return name === "Active Time" ? payload.activeTimeLabel : payload.backgroundTimeLabel;
-            }}
-          />
+          <Tooltip formatter={(value, name, { payload }) => payload ? payload[name.toLowerCase() + "Label"] : value} />
           <Legend />
           <Bar dataKey="activeTime" fill="#34D399" name="Active Time" />
           <Bar dataKey="backgroundTime" fill="#EF4444" name="Background Time" />
         </BarChart>
       </ResponsiveContainer>
 
-      {/* ✅ Usage Report Table */}
-      <h2 className="text-xl font-semibold mt-8">Detailed Usage Data</h2>
+      {/* ✅ Website Usage Chart */}
+      <h2 className="text-xl font-semibold mt-8">Website Usage</h2>
+      <ResponsiveContainer width="90%" height={300}>
+        <BarChart data={websiteChartData}>
+          <XAxis dataKey="name" angle={-45} textAnchor="end" interval={0} />
+          <YAxis label={{ value: "Minutes", angle: -90, position: "insideLeft" }} />
+          <Tooltip formatter={(value, name, { payload }) => payload ? payload[name.toLowerCase() + "Label"] : value} />
+          <Legend />
+          <Bar dataKey="activeTime" fill="#6366F1" name="Time Spent" />
+        </BarChart>
+      </ResponsiveContainer>
+
+      {/* ✅ App Usage Table */}
+      <h2 className="text-xl font-semibold mt-8">App Usage Details</h2>
       <div className="w-3/4 overflow-x-auto">
         <table className="border-collapse border border-gray-400 w-full mt-4">
           <thead>
@@ -100,11 +108,32 @@ function App() {
             </tr>
           </thead>
           <tbody>
-            {chartData.map((row, index) => (
+            {appChartData.map((row, index) => (
               <tr key={index} className="bg-gray-800">
-                <td className="border border-gray-500 p-2">{row.app}</td>
+                <td className="border border-gray-500 p-2">{row.name}</td>
                 <td className="border border-gray-500 p-2">{row.activeTimeLabel}</td>
                 <td className="border border-gray-500 p-2">{row.backgroundTimeLabel}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {/* ✅ Website Usage Table */}
+      <h2 className="text-xl font-semibold mt-8">Website Usage Details</h2>
+      <div className="w-3/4 overflow-x-auto">
+        <table className="border-collapse border border-gray-400 w-full mt-4">
+          <thead>
+            <tr className="bg-gray-700">
+              <th className="border border-gray-500 p-2">Website</th>
+              <th className="border border-gray-500 p-2">Time Spent</th>
+            </tr>
+          </thead>
+          <tbody>
+            {websiteChartData.map((row, index) => (
+              <tr key={index} className="bg-gray-800">
+                <td className="border border-gray-500 p-2">{row.name}</td>
+                <td className="border border-gray-500 p-2">{row.activeTimeLabel}</td>
               </tr>
             ))}
           </tbody>

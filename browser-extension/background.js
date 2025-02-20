@@ -1,6 +1,7 @@
 let activeDomain = "";
 let lastUpdateTime = Date.now();
-let websiteUsage = {}; // Store website tracking data in memory
+let websiteUsage = {}; 
+const SERVER_URL = "http://localhost:3001/track"; 
 
 const getDomain = (url) => {
   try {
@@ -10,6 +11,25 @@ const getDomain = (url) => {
   }
 };
 
+const sendDataToElectron = () => {
+    chrome.storage.local.get("websiteUsage", (data) => {
+      if (data && data.websiteUsage) {
+        // ✅ Filter websites with more than 120 seconds (2 minutes)
+        const filteredData = Object.fromEntries(
+          Object.entries(data.websiteUsage).filter(([_, seconds]) => seconds >= 120)
+        );
+  
+        if (Object.keys(filteredData).length > 0) {
+          fetch(SERVER_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(filteredData),
+          }).catch((error) => console.error("Error sending data to Electron:", error));
+        }
+      }
+    });
+  };
+
 const updateWebsiteTime = () => {
   const now = Date.now();
   const elapsedTime = (now - lastUpdateTime) / 1000; // Convert ms to seconds
@@ -18,6 +38,9 @@ const updateWebsiteTime = () => {
   if (activeDomain) {
     websiteUsage[activeDomain] = (websiteUsage[activeDomain] || 0) + elapsedTime;
     console.log(`Tracking ${activeDomain}: +${Math.floor(elapsedTime)} seconds`);
+
+    // ✅ Store data persistently so popup.js can access it
+    chrome.storage.local.set({ websiteUsage });
   }
 };
 
@@ -44,9 +67,21 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
 // ✅ Handle requests from `popup.js`
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.type === "getUsage") {
-    sendResponse(websiteUsage);
+    chrome.storage.local.get("websiteUsage", (data) => {
+      console.log("Sending data to popup:", data);
+      sendResponse(data.websiteUsage || {});
+    });
+    return true; // Required for async response
   }
 });
 
-// ✅ Periodically update usage time every 10 seconds
-setInterval(updateWebsiteTime, 10000);
+setInterval(() => {
+    console.log("Current website usage data:", websiteUsage);
+    chrome.storage.local.get("websiteUsage", (data) => {
+      console.log("Saved storage data:", data);
+    });
+  }, 5000);
+  
+setInterval(updateWebsiteTime, 5000);
+
+setInterval(sendDataToElectron, 30000);

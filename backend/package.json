@@ -15,8 +15,10 @@
   "dependencies": {
     "active-win": "^9.0.0",
     "concurrently": "^9.1.2",
-    "electron": "^34.1.1",
+    "cors": "^2.8.5",
+    "electron": "^34.2.0",
     "electron-builder": "^25.1.8",
+    "express": "^4.21.2",
     "sqlite3": "^5.1.7"
   }
 }
