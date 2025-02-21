@@ -9,37 +9,51 @@ import express from "express";
 import cors from "cors";
 import fs from "fs";
 
+// Resolve file paths
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const DATA_FILE = path.join(__dirname, "usageData.json"); // ✅ App usage data file
-const WEBSITE_USAGE_FILE = path.join(__dirname, "websiteUsage.json"); // ✅ Website tracking data file
+// File paths for storing usage data
+const DATA_FILE = path.join(__dirname, "usageData.json"); // Stores application usage data
+const WEBSITE_USAGE_FILE = path.join(__dirname, "websiteUsage.json"); // Stores website tracking data
 
-let mainWindow;
-const appUsage = loadUsageData();
-const websiteUsage = loadWebsiteData();
+let mainWindow; // Main Electron window
+const appUsage = loadUsageData(); // Load saved application usage data
+const websiteUsage = loadWebsiteData(); // Load saved website tracking data
 
-// ✅ Load app usage data from file
+/**
+ * Load application usage data from the stored JSON file.
+ * If the file does not exist, initialize with an empty history object.
+ */
 function loadUsageData() {
   return fs.existsSync(DATA_FILE) ? JSON.parse(fs.readFileSync(DATA_FILE, "utf8")) : { history: {} };
 }
 
-// ✅ Load website tracking data from file
+/**
+ * Load website tracking data from the stored JSON file.
+ * If the file does not exist, initialize with an empty object.
+ */
 function loadWebsiteData() {
   return fs.existsSync(WEBSITE_USAGE_FILE) ? JSON.parse(fs.readFileSync(WEBSITE_USAGE_FILE, "utf8")) : {};
 }
 
-// ✅ Save app usage data
+/**
+ * Save application usage data to the JSON file.
+ */
 function saveUsageData() {
   fs.writeFileSync(DATA_FILE, JSON.stringify(appUsage, null, 2));
 }
 
-// ✅ Save website tracking data
+/**
+ * Save website tracking data to the JSON file.
+ */
 function saveWebsiteData() {
   fs.writeFileSync(WEBSITE_USAGE_FILE, JSON.stringify(websiteUsage, null, 2));
 }
 
-// ✅ Ensure Electron is Ready Before Initializing Express
+/**
+ * Initialize Electron application and create the main window.
+ */
 app.whenReady().then(() => {
   mainWindow = new BrowserWindow({
     width: 1000,
@@ -50,25 +64,34 @@ app.whenReady().then(() => {
     },
   });
 
+  // Load the frontend React application
   mainWindow.loadURL("http://localhost:5173");
 
+  // Configure the app to start on system boot
   app.setLoginItemSettings({
     openAtLogin: true,
     path: process.execPath,
   });
 
-  // ✅ Start Express Server After Electron is Ready
+  // Start the Express server once Electron is ready
   startExpressServer();
 });
 
-// ✅ Quit app when all windows are closed (except macOS)
+/**
+ * Quit the application when all windows are closed (except on macOS).
+ * macOS applications remain open even when all windows are closed.
+ */
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") {
     app.quit();
   }
 });
 
-// ✅ Format time (HH:MM:SS)
+/**
+ * Format time from seconds into HH:MM:SS format.
+ * @param {number} seconds - The time in seconds.
+ * @returns {string} - The formatted time string.
+ */
 const formatTime = (seconds) => {
   const h = Math.floor(seconds / 3600).toString().padStart(2, "0");
   const m = Math.floor((seconds % 3600) / 60).toString().padStart(2, "0");
@@ -76,29 +99,37 @@ const formatTime = (seconds) => {
   return `${h}:${m}:${s}`;
 };
 
-// ✅ Get current date in YYYY-MM-DD format
+/**
+ * Get the current date in YYYY-MM-DD format.
+ * @returns {string} - The formatted date string.
+ */
 const getCurrentDate = () => new Date().toISOString().split("T")[0];
 
 let lastUpdateTime = Date.now();
 
-// ✅ Track Active and Background App Usage Every Second
+/**
+ * Monitor active and background app usage at 1-second intervals.
+ * The script identifies the currently active application and logs its active/background time.
+ */
 setInterval(async () => {
   try {
-    const allWindows = await openWindows();
-    const activeWin = await activeWindow();
+    const allWindows = await openWindows(); // Retrieve all open application windows
+    const activeWin = await activeWindow(); // Retrieve the currently active window
     const currentTime = Date.now();
-    const elapsedTime = (currentTime - lastUpdateTime) / 1000; // Convert ms to seconds
+    const elapsedTime = (currentTime - lastUpdateTime) / 1000; // Convert milliseconds to seconds
     lastUpdateTime = currentTime;
 
     const today = getCurrentDate();
-    if (!appUsage.history[today]) appUsage.history[today] = {};
+    if (!appUsage.history[today]) appUsage.history[today] = {}; // Ensure date exists in usage history
 
+    // Iterate through open applications and track usage time
     allWindows.forEach((win) => {
-      const appName = win.owner.name || "Unknown";
+      const appName = win.owner.name || "Unknown"; // Get application name
       if (!appUsage.history[today][appName]) {
         appUsage.history[today][appName] = { activeTime: 0, backgroundTime: 0 };
       }
 
+      // Determine if the app is active or running in the background
       if (activeWin && win.id === activeWin.id) {
         appUsage.history[today][appName].activeTime += elapsedTime;
       } else {
@@ -106,8 +137,9 @@ setInterval(async () => {
       }
     });
 
-    saveUsageData();
+    saveUsageData(); // Persist application usage data
 
+    // Send updated usage report to the frontend
     if (mainWindow) {
       mainWindow.webContents.send("update-usage-report", appUsage.history);
     }
@@ -116,37 +148,36 @@ setInterval(async () => {
   }
 }, 1000);
 
-// ✅ Start Express Server (Runs After Electron is Ready)
+/**
+ * Start the Express server for handling website tracking data.
+ */
 function startExpressServer() {
   const expressApp = express();
   const PORT = 3001;
 
-  expressApp.use(cors());
-  expressApp.use(express.json());
+  expressApp.use(cors()); // Enable CORS for cross-origin requests
+  expressApp.use(express.json()); // Parse incoming JSON data
 
-  // ✅ Receive Website Tracking Data from Browser Extension
+  /**
+   * Handle incoming website tracking data from the browser extension.
+   * This data is stored and sent to the frontend for visualization.
+   */
   expressApp.post("/track", (req, res) => {
-    console.log("Received website tracking data:", req.body);
+    console.log("Website tracking data updated");
 
     const today = getCurrentDate();
-    if (!websiteUsage[today]) websiteUsage[today] = {};
+    websiteUsage[today] = req.body; // Store received website tracking data
 
-    Object.entries(req.body).forEach(([domain, seconds]) => {
-      if (seconds >= 120) { // ✅ Only track websites used for more than 2 minutes
-        websiteUsage[today][domain] = (websiteUsage[today][domain] || 0) + seconds;
-      }
-    });
-
-    saveWebsiteData();
+    saveWebsiteData(); // Persist website tracking data
     res.json({ message: "Website data saved successfully!" });
 
-    // ✅ Send updated website data to the frontend
+    // Send updated website tracking data to the frontend
     if (mainWindow) {
       mainWindow.webContents.send("update-website-report", websiteUsage);
     }
   });
 
-  // ✅ Start Express Server
+  // Start the Express server on port 3001
   expressApp.listen(PORT, () => {
     console.log(`Electron backend listening on port ${PORT}`);
   });
