@@ -38,9 +38,131 @@
       "lastRecordedTime": 693.411
     },
     "chatgpt.com": {
-      "activeTime": 6502.152999999993,
-      "backgroundTime": 1366.6189999999915,
-      "lastRecordedTime": 8328.667999999981
+      "activeTime": 6794.838999999991,
+      "backgroundTime": 2633.6069999999945,
+      "lastRecordedTime": 9888.341999999982
+    },
+    "docs.google.com": {
+      "activeTime": 1001.2889999999999,
+      "backgroundTime": 1001.2889999999999,
+      "lastRecordedTime": 1001.2889999999999
+    },
+    "google.com": {
+      "activeTime": 3142.654000000003,
+      "backgroundTime": 3187.6510000000035,
+      "lastRecordedTime": 3187.6510000000035
+    },
+    "linkedin.com": {
+      "activeTime": 3744.448000000002,
+      "backgroundTime": 3919.4060000000018,
+      "lastRecordedTime": 3919.4060000000018
+    },
+    "lolalytics.com": {
+      "activeTime": 7376.44299999999,
+      "backgroundTime": 7376.44299999999,
+      "lastRecordedTime": 7376.44299999999
+    },
+    "mail.google.com": {
+      "activeTime": 7855.727000000004,
+      "backgroundTime": 7855.727000000004,
+      "lastRecordedTime": 7855.727000000004
+    },
+    "op.gg": {
+      "activeTime": 663.153,
+      "backgroundTime": 663.153,
+      "lastRecordedTime": 663.153
+    },
+    "outlook.office.com": {
+      "activeTime": 1277.0710000000001,
+      "backgroundTime": 1277.0710000000001,
+      "lastRecordedTime": 1277.0710000000001
+    },
+    "ovo-gola.com": {
+      "activeTime": 737.686,
+      "backgroundTime": 737.686,
+      "lastRecordedTime": 737.686
+    },
+    "studio.youtube.com": {
+      "activeTime": 762.873,
+      "backgroundTime": 762.873,
+      "lastRecordedTime": 762.873
+    },
+    "topsportfeed.com": {
+      "activeTime": 772.066,
+      "backgroundTime": 772.066,
+      "lastRecordedTime": 772.066
+    },
+    "translate.google.ca": {
+      "activeTime": 1754.3950000000004,
+      "backgroundTime": 1754.3950000000004,
+      "lastRecordedTime": 1754.3950000000004
+    },
+    "x.com": {
+      "activeTime": 14685.541000000005,
+      "backgroundTime": 14785.541000000008,
+      "lastRecordedTime": 14785.541000000008
+    },
+    "youtube.com": {
+      "activeTime": 42659.75600000012,
+      "backgroundTime": 42664.76200000012,
+      "lastRecordedTime": 42664.76200000012
+    },
+    "extensions": {
+      "activeTime": 90.00299999999996,
+      "backgroundTime": 103.26799999999994,
+      "lastRecordedTime": 135.42199999999994
+    },
+    "localhost": {
+      "activeTime": 39.82600000000001,
+      "backgroundTime": 39.82600000000001,
+      "lastRecordedTime": 44.82400000000001
+    },
+    "startpageshared": {
+      "activeTime": 25.994000000000003,
+      "backgroundTime": 54.025999999999996,
+      "lastRecordedTime": 59.031
+    },
+    "drive.google.com": {
+      "activeTime": 0,
+      "backgroundTime": 0,
+      "lastRecordedTime": 2.446
+    },
+    "drive.usercontent.google.com": {
+      "activeTime": 0,
+      "backgroundTime": 0,
+      "lastRecordedTime": 229.48700000000002
+    },
+    "gxcorner.games": {
+      "activeTime": 0,
+      "backgroundTime": 0,
+      "lastRecordedTime": 1.649
+    },
+    "kailinho.github.io": {
+      "activeTime": 0,
+      "backgroundTime": 0,
+      "lastRecordedTime": 0
+    },
+    "ubereats.com": {
+      "activeTime": 0,
+      "backgroundTime": 0,
+      "lastRecordedTime": 0.383
+    }
+  },
+  "2025-02-22": {
+    "app.skillsyncer.com": {
+      "activeTime": 693.0389999999998,
+      "backgroundTime": 693.0389999999998,
+      "lastRecordedTime": 693.0389999999998
+    },
+    "bilibili.com": {
+      "activeTime": 693.411,
+      "backgroundTime": 693.411,
+      "lastRecordedTime": 693.411
+    },
+    "chatgpt.com": {
+      "activeTime": 6663.28199999999,
+      "backgroundTime": 2200.484999999995,
+      "lastRecordedTime": 9323.662999999982
     },
     "docs.google.com": {
       "activeTime": 1001.2889999999999,
