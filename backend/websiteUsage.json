@@ -38,9 +38,9 @@
       "lastRecordedTime": 693.411
     },
     "chatgpt.com": {
-      "activeTime": 6372.529999999993,
-      "backgroundTime": 363.85499999999774,
-      "lastRecordedTime": 7196.280999999988
+      "activeTime": 6502.152999999993,
+      "backgroundTime": 1366.6189999999915,
+      "lastRecordedTime": 8328.667999999981
     },
     "docs.google.com": {
       "activeTime": 1001.2889999999999,
@@ -49,13 +49,13 @@
     },
     "google.com": {
       "activeTime": 3142.654000000003,
-      "backgroundTime": 3142.654000000003,
-      "lastRecordedTime": 3142.654000000003
+      "backgroundTime": 3187.6510000000035,
+      "lastRecordedTime": 3187.6510000000035
     },
     "linkedin.com": {
       "activeTime": 3744.448000000002,
-      "backgroundTime": 3744.448000000002,
-      "lastRecordedTime": 3744.448000000002
+      "backgroundTime": 3919.4060000000018,
+      "lastRecordedTime": 3919.4060000000018
     },
     "lolalytics.com": {
       "activeTime": 7376.44299999999,
@@ -99,18 +99,18 @@
     },
     "x.com": {
       "activeTime": 14685.541000000005,
-      "backgroundTime": 14685.541000000005,
-      "lastRecordedTime": 14685.541000000005
+      "backgroundTime": 14785.541000000008,
+      "lastRecordedTime": 14785.541000000008
     },
     "youtube.com": {
       "activeTime": 42659.75600000012,
-      "backgroundTime": 42659.75600000012,
-      "lastRecordedTime": 42659.75600000012
+      "backgroundTime": 42664.76200000012,
+      "lastRecordedTime": 42664.76200000012
     },
     "extensions": {
       "activeTime": 88.03299999999996,
-      "backgroundTime": 93.25899999999996,
-      "lastRecordedTime": 123.44299999999996
+      "backgroundTime": 98.27299999999994,
+      "lastRecordedTime": 128.45699999999994
     },
     "localhost": {
       "activeTime": 39.82600000000001,
@@ -118,9 +118,34 @@
       "lastRecordedTime": 44.82400000000001
     },
     "startpageshared": {
-      "activeTime": 20.989,
-      "backgroundTime": 20.989,
-      "lastRecordedTime": 20.989
+      "activeTime": 25.994000000000003,
+      "backgroundTime": 49.028,
+      "lastRecordedTime": 54.033
+    },
+    "drive.google.com": {
+      "activeTime": 0,
+      "backgroundTime": 0,
+      "lastRecordedTime": 2.446
+    },
+    "drive.usercontent.google.com": {
+      "activeTime": 0,
+      "backgroundTime": 0,
+      "lastRecordedTime": 229.48700000000002
+    },
+    "gxcorner.games": {
+      "activeTime": 0,
+      "backgroundTime": 0,
+      "lastRecordedTime": 1.649
+    },
+    "kailinho.github.io": {
+      "activeTime": 0,
+      "backgroundTime": 0,
+      "lastRecordedTime": 0
+    },
+    "ubereats.com": {
+      "activeTime": 0,
+      "backgroundTime": 0,
+      "lastRecordedTime": 0.383
     }
   }
 }

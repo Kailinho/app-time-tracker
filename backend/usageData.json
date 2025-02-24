@@ -150,16 +150,16 @@
     },
     "2025-02-23": {
       "Electron": {
-        "activeTime": 911.2299999999965,
-        "backgroundTime": 1806.3170000000066
+        "activeTime": 1085.520999999996,
+        "backgroundTime": 2080.506000000008
       },
       "Visual Studio Code": {
-        "activeTime": 957.5709999999964,
-        "backgroundTime": 1759.9760000000051
+        "activeTime": 1081.502999999996,
+        "backgroundTime": 2084.524000000006
       },
       "Opera GX Internet Browser": {
-        "activeTime": 799.4069999999967,
-        "backgroundTime": 5428.454000000089
+        "activeTime": 944.6239999999962,
+        "backgroundTime": 5731.71700000009
       },
       "Spotify": {
         "activeTime": 0,
@@ -167,7 +167,11 @@
       },
       "Discord": {
         "activeTime": 13.068999999999999,
-        "backgroundTime": 2704.4780000000173
+        "backgroundTime": 3152.9580000000265
+      },
+      "Windows Explorer": {
+        "activeTime": 0,
+        "backgroundTime": 448.4799999999998
       }
     }
   }
