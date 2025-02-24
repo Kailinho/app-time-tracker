@@ -39,7 +39,7 @@ function App() {
   /**
    * Processes usage data to generate chart-friendly format.
    * - Aggregates active and background time for apps/websites.
-   * - Filters out entries with less than 5 minutes of total usage.
+   * - Filters out entries with less than 10 minutes of total usage.
    *
    * @param {object} data - The usage data (app or website).
    * @param {number} period - The report period (1 = Daily, 7 = Weekly, 30 = Monthly).
@@ -60,7 +60,7 @@ function App() {
     });
 
     return Object.values(aggregatedData)
-      .filter((entry) => entry.activeTime + entry.backgroundTime >= 300) // Show only items with >5 min usage
+      .filter((entry) => entry.activeTime + entry.backgroundTime >= 600) // Show only items with >10 min usage
       .map((entry) => ({
         name: entry.name,
         activeTime: entry.activeTime / 60, // Convert seconds to minutes

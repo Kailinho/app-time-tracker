@@ -99,19 +99,19 @@
     "2025-02-21": {
       "Electron": {
         "activeTime": 1173.738999999997,
-        "backgroundTime": 3323.7070000000103
+        "backgroundTime": 3325.7230000000104
       },
       "Visual Studio Code": {
-        "activeTime": 1243.1649999999956,
+        "activeTime": 1245.1809999999955,
         "backgroundTime": 3254.281000000007
       },
       "Opera GX Internet Browser": {
         "activeTime": 1761.611,
-        "backgroundTime": 2817.302000000009
+        "backgroundTime": 2819.318000000009
       },
       "Discord": {
         "activeTime": 133.81,
-        "backgroundTime": 4363.636000000022
+        "backgroundTime": 4365.652000000022
       },
       "Windows Explorer": {
         "activeTime": 7.043,
@@ -120,6 +120,54 @@
       "Video.UI.exe": {
         "activeTime": 1.004,
         "backgroundTime": 0
+      }
+    },
+    "2025-02-24": {
+      "Electron": {
+        "activeTime": 344.6529999999997,
+        "backgroundTime": 438.17399999999935
+      },
+      "Opera GX Internet Browser": {
+        "activeTime": 103.75999999999995,
+        "backgroundTime": 679.0669999999983
+      },
+      "Visual Studio Code": {
+        "activeTime": 266.92699999999974,
+        "backgroundTime": 515.8999999999991
+      },
+      "Discord": {
+        "activeTime": 9.056000000000001,
+        "backgroundTime": 773.7709999999975
+      },
+      "Spotify": {
+        "activeTime": 22.159000000000002,
+        "backgroundTime": 660.8639999999986
+      },
+      "Calculator": {
+        "activeTime": 6.039,
+        "backgroundTime": 12.082
+      }
+    },
+    "2025-02-23": {
+      "Electron": {
+        "activeTime": 911.2299999999965,
+        "backgroundTime": 1806.3170000000066
+      },
+      "Visual Studio Code": {
+        "activeTime": 957.5709999999964,
+        "backgroundTime": 1759.9760000000051
+      },
+      "Opera GX Internet Browser": {
+        "activeTime": 799.4069999999967,
+        "backgroundTime": 5428.454000000089
+      },
+      "Spotify": {
+        "activeTime": 0,
+        "backgroundTime": 2717.5470000000178
+      },
+      "Discord": {
+        "activeTime": 13.068999999999999,
+        "backgroundTime": 2704.4780000000173
       }
     }
   }

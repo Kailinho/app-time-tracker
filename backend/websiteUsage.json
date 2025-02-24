@@ -7,5 +7,120 @@
     "extensions": 137.16099999999994,
     "google.com": 165.81599999999997,
     "stackoverflow.com": 314.46900000000005
+  },
+  "2025-02-24": {
+    "app.skillsyncer.com": 693.0389999999998,
+    "bilibili.com": 693.411,
+    "chatgpt.com": 5178.257999999995,
+    "docs.google.com": 1001.2889999999999,
+    "google.com": 3133.493000000003,
+    "linkedin.com": 3744.448000000002,
+    "lolalytics.com": 7376.44299999999,
+    "mail.google.com": 7855.727000000004,
+    "op.gg": 663.153,
+    "outlook.office.com": 1277.0710000000001,
+    "ovo-gola.com": 737.686,
+    "studio.youtube.com": 762.873,
+    "topsportfeed.com": 772.066,
+    "translate.google.ca": 1754.3950000000004,
+    "x.com": 14685.541000000005,
+    "youtube.com": 42659.75600000012
+  },
+  "2025-02-23": {
+    "app.skillsyncer.com": {
+      "activeTime": 693.0389999999998,
+      "backgroundTime": 693.0389999999998,
+      "lastRecordedTime": 693.0389999999998
+    },
+    "bilibili.com": {
+      "activeTime": 693.411,
+      "backgroundTime": 693.411,
+      "lastRecordedTime": 693.411
+    },
+    "chatgpt.com": {
+      "activeTime": 6372.529999999993,
+      "backgroundTime": 363.85499999999774,
+      "lastRecordedTime": 7196.280999999988
+    },
+    "docs.google.com": {
+      "activeTime": 1001.2889999999999,
+      "backgroundTime": 1001.2889999999999,
+      "lastRecordedTime": 1001.2889999999999
+    },
+    "google.com": {
+      "activeTime": 3142.654000000003,
+      "backgroundTime": 3142.654000000003,
+      "lastRecordedTime": 3142.654000000003
+    },
+    "linkedin.com": {
+      "activeTime": 3744.448000000002,
+      "backgroundTime": 3744.448000000002,
+      "lastRecordedTime": 3744.448000000002
+    },
+    "lolalytics.com": {
+      "activeTime": 7376.44299999999,
+      "backgroundTime": 7376.44299999999,
+      "lastRecordedTime": 7376.44299999999
+    },
+    "mail.google.com": {
+      "activeTime": 7855.727000000004,
+      "backgroundTime": 7855.727000000004,
+      "lastRecordedTime": 7855.727000000004
+    },
+    "op.gg": {
+      "activeTime": 663.153,
+      "backgroundTime": 663.153,
+      "lastRecordedTime": 663.153
+    },
+    "outlook.office.com": {
+      "activeTime": 1277.0710000000001,
+      "backgroundTime": 1277.0710000000001,
+      "lastRecordedTime": 1277.0710000000001
+    },
+    "ovo-gola.com": {
+      "activeTime": 737.686,
+      "backgroundTime": 737.686,
+      "lastRecordedTime": 737.686
+    },
+    "studio.youtube.com": {
+      "activeTime": 762.873,
+      "backgroundTime": 762.873,
+      "lastRecordedTime": 762.873
+    },
+    "topsportfeed.com": {
+      "activeTime": 772.066,
+      "backgroundTime": 772.066,
+      "lastRecordedTime": 772.066
+    },
+    "translate.google.ca": {
+      "activeTime": 1754.3950000000004,
+      "backgroundTime": 1754.3950000000004,
+      "lastRecordedTime": 1754.3950000000004
+    },
+    "x.com": {
+      "activeTime": 14685.541000000005,
+      "backgroundTime": 14685.541000000005,
+      "lastRecordedTime": 14685.541000000005
+    },
+    "youtube.com": {
+      "activeTime": 42659.75600000012,
+      "backgroundTime": 42659.75600000012,
+      "lastRecordedTime": 42659.75600000012
+    },
+    "extensions": {
+      "activeTime": 88.03299999999996,
+      "backgroundTime": 93.25899999999996,
+      "lastRecordedTime": 123.44299999999996
+    },
+    "localhost": {
+      "activeTime": 39.82600000000001,
+      "backgroundTime": 39.82600000000001,
+      "lastRecordedTime": 44.82400000000001
+    },
+    "startpageshared": {
+      "activeTime": 20.989,
+      "backgroundTime": 20.989,
+      "lastRecordedTime": 20.989
+    }
   }
 }
