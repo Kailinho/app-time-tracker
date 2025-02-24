@@ -32,22 +32,37 @@ function AppUsage() {
    * Processes app usage data into a format suitable for charts and tables.
    * @returns {Array} - Processed data.
    */
-  const getChartData = () => {
-    const dates = Object.keys(usageReport).slice(-reportPeriod);
+  const getChartData = (data, period) => {
+    if (!data || Object.keys(data).length === 0) {
+      return []; // No data available
+    }
+  
+    const today = new Date().toLocaleDateString("en-CA"); // YYYY-MM-DD format
+    const allDates = Object.keys(data).sort(); // Sort dates in ascending order
+    let selectedDates = [];
+  
+    if (period === 1) {
+      // If Daily mode, use only today's data if available
+      selectedDates = allDates.includes(today) ? [today] : [];
+    } else {
+      // Otherwise, get data for the last `period` days
+      selectedDates = allDates.slice(-period);
+    }
+  
     const aggregatedData = {};
-
-    dates.forEach((date) => {
-      Object.entries(usageReport[date] || {}).forEach(([app, times]) => {
+  
+    selectedDates.forEach((date) => {
+      Object.entries(data[date] || {}).forEach(([app, times]) => {
         if (!aggregatedData[app]) {
           aggregatedData[app] = { name: app, activeTime: 0, backgroundTime: 0 };
         }
-        aggregatedData[app].activeTime += times.activeTime;
-        aggregatedData[app].backgroundTime += times.backgroundTime;
+        aggregatedData[app].activeTime += times.activeTime || 0;
+        aggregatedData[app].backgroundTime += times.backgroundTime || 0;
       });
     });
-
+  
     return Object.values(aggregatedData)
-      .filter((entry) => entry.activeTime + entry.backgroundTime >= 600)
+      .filter((entry) => entry.activeTime + entry.backgroundTime >= 600) // Filter out apps with <10 min usage
       .map((entry) => ({
         name: entry.name,
         activeTime: entry.activeTime / 60,
@@ -56,8 +71,9 @@ function AppUsage() {
         backgroundTimeLabel: formatTimeHHMM(entry.backgroundTime),
       }));
   };
+  
 
-  const appChartData = getChartData();
+  const appChartData = getChartData(usageReport,reportPeriod);
 
   return (
     <div className="p-6">

@@ -8,24 +8,6 @@
     "google.com": 165.81599999999997,
     "stackoverflow.com": 314.46900000000005
   },
-  "2025-02-24": {
-    "app.skillsyncer.com": 693.0389999999998,
-    "bilibili.com": 693.411,
-    "chatgpt.com": 5178.257999999995,
-    "docs.google.com": 1001.2889999999999,
-    "google.com": 3133.493000000003,
-    "linkedin.com": 3744.448000000002,
-    "lolalytics.com": 7376.44299999999,
-    "mail.google.com": 7855.727000000004,
-    "op.gg": 663.153,
-    "outlook.office.com": 1277.0710000000001,
-    "ovo-gola.com": 737.686,
-    "studio.youtube.com": 762.873,
-    "topsportfeed.com": 772.066,
-    "translate.google.ca": 1754.3950000000004,
-    "x.com": 14685.541000000005,
-    "youtube.com": 42659.75600000012
-  },
   "2025-02-23": {
     "app.skillsyncer.com": {
       "activeTime": 693.0389999999998,
@@ -268,6 +250,73 @@
       "activeTime": 0,
       "backgroundTime": 0,
       "lastRecordedTime": 0.383
+    }
+  },
+  "2025-02-24": {
+    "extensions": {
+      "activeTime": 9.992,
+      "backgroundTime": 20.017000000000003,
+      "lastRecordedTime": 32.575
+    },
+    "google.com": {
+      "activeTime": 0,
+      "backgroundTime": 0,
+      "lastRecordedTime": 5.008
+    },
+    "gxcorner.games": {
+      "activeTime": 0,
+      "backgroundTime": 0,
+      "lastRecordedTime": 4.414
+    },
+    "kailinho.github.io": {
+      "activeTime": 0,
+      "backgroundTime": 0,
+      "lastRecordedTime": 0.004
+    },
+    "linkedin.com": {
+      "activeTime": 0,
+      "backgroundTime": 0,
+      "lastRecordedTime": 175.874
+    },
+    "login.microsoftonline.com": {
+      "activeTime": 0,
+      "backgroundTime": 0,
+      "lastRecordedTime": 9.687
+    },
+    "mail.google.com": {
+      "activeTime": 0,
+      "backgroundTime": 0,
+      "lastRecordedTime": 187.11499999999998
+    },
+    "outlook.office.com": {
+      "activeTime": 27.538999999999987,
+      "backgroundTime": 14.997999999999934,
+      "lastRecordedTime": 680.4280000000001
+    },
+    "startpageshared": {
+      "activeTime": 6.950000000000006,
+      "backgroundTime": 1.4469999999999992,
+      "lastRecordedTime": 35.325
+    },
+    "x.com": {
+      "activeTime": 4.9950000000000045,
+      "backgroundTime": 69.07499999999996,
+      "lastRecordedTime": 306.52699999999993
+    },
+    "youtube.com": {
+      "activeTime": 205.7349999999999,
+      "backgroundTime": 3479.389000000002,
+      "lastRecordedTime": 4503.406000000003
+    },
+    "cdn.discordapp.com": {
+      "activeTime": 5.000999999999998,
+      "backgroundTime": 43.121,
+      "lastRecordedTime": 49.991
+    },
+    "chatgpt.com": {
+      "activeTime": 104.96400000000006,
+      "backgroundTime": 262.91100000000006,
+      "lastRecordedTime": 369.9980000000001
     }
   }
 }

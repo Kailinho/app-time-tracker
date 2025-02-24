@@ -124,20 +124,20 @@
     },
     "2025-02-24": {
       "Electron": {
-        "activeTime": 344.6529999999997,
-        "backgroundTime": 438.17399999999935
+        "activeTime": 583.6569999999989,
+        "backgroundTime": 4638.757000000021
       },
       "Opera GX Internet Browser": {
-        "activeTime": 103.75999999999995,
-        "backgroundTime": 679.0669999999983
+        "activeTime": 512.7249999999985,
+        "backgroundTime": 4945.448000000016
       },
       "Visual Studio Code": {
-        "activeTime": 266.92699999999974,
-        "backgroundTime": 515.8999999999991
+        "activeTime": 572.1559999999986,
+        "backgroundTime": 4650.258000000025
       },
       "Discord": {
-        "activeTime": 9.056000000000001,
-        "backgroundTime": 773.7709999999975
+        "activeTime": 1449.4149999999993,
+        "backgroundTime": 3772.999000000022
       },
       "Spotify": {
         "activeTime": 22.159000000000002,
@@ -146,20 +146,28 @@
       "Calculator": {
         "activeTime": 6.039,
         "backgroundTime": 12.082
+      },
+      "gamingservicesui.exe": {
+        "activeTime": 3.007,
+        "backgroundTime": 5.034
+      },
+      "Photos.exe": {
+        "activeTime": 11.099,
+        "backgroundTime": 176.32700000000003
       }
     },
     "2025-02-23": {
       "Electron": {
         "activeTime": 1375.5370000000005,
-        "backgroundTime": 2701.132000000012
+        "backgroundTime": 2703.142000000012
       },
       "Visual Studio Code": {
-        "activeTime": 1416.9259999999997,
+        "activeTime": 1418.9359999999997,
         "backgroundTime": 2659.7430000000136
       },
       "Opera GX Internet Browser": {
         "activeTime": 1229.8269999999977,
-        "backgroundTime": 6375.314000000096
+        "backgroundTime": 6377.324000000096
       },
       "Spotify": {
         "activeTime": 0,
@@ -167,11 +175,11 @@
       },
       "Discord": {
         "activeTime": 13.068999999999999,
-        "backgroundTime": 4063.600000000035
+        "backgroundTime": 4065.610000000035
       },
       "Windows Explorer": {
         "activeTime": 0,
-        "backgroundTime": 1359.1220000000017
+        "backgroundTime": 1361.1320000000017
       }
     }
   }

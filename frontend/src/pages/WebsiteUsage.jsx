@@ -7,7 +7,7 @@ function WebsiteUsage() {
   const [websiteUsage, setWebsiteUsage] = useState({});
   const [reportPeriod, setReportPeriod] = useState(1);
 
-  // ✅ Listen for updates from Electron backend
+  // Listen for updates from Electron backend
   useEffect(() => {
     if (window.electron) {
       window.electron.onUpdateWebsiteReport((data) => {
