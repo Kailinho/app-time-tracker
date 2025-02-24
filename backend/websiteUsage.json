@@ -259,19 +259,19 @@
       "lastRecordedTime": 32.575
     },
     "google.com": {
-      "activeTime": 0,
-      "backgroundTime": 0,
-      "lastRecordedTime": 5.008
+      "activeTime": 53.34300000000001,
+      "backgroundTime": 5.705999999999996,
+      "lastRecordedTime": 64.057
     },
     "gxcorner.games": {
-      "activeTime": 0,
+      "activeTime": 0.44099999999999984,
       "backgroundTime": 0,
-      "lastRecordedTime": 4.414
+      "lastRecordedTime": 4.8549999999999995
     },
     "kailinho.github.io": {
-      "activeTime": 0,
+      "activeTime": 280.4469999999999,
       "backgroundTime": 0,
-      "lastRecordedTime": 0.004
+      "lastRecordedTime": 280.4509999999999
     },
     "linkedin.com": {
       "activeTime": 0,
@@ -279,24 +279,24 @@
       "lastRecordedTime": 175.874
     },
     "login.microsoftonline.com": {
-      "activeTime": 0,
+      "activeTime": 5.376999999999999,
       "backgroundTime": 0,
-      "lastRecordedTime": 9.687
+      "lastRecordedTime": 15.063999999999998
     },
     "mail.google.com": {
-      "activeTime": 0,
-      "backgroundTime": 0,
-      "lastRecordedTime": 187.11499999999998
+      "activeTime": 16.660999999999973,
+      "backgroundTime": 3.5089999999999577,
+      "lastRecordedTime": 207.2849999999999
     },
     "outlook.office.com": {
-      "activeTime": 27.538999999999987,
-      "backgroundTime": 14.997999999999934,
-      "lastRecordedTime": 680.4280000000001
+      "activeTime": 948.7380000000005,
+      "backgroundTime": 368.4359999999996,
+      "lastRecordedTime": 1955.0650000000003
     },
     "startpageshared": {
-      "activeTime": 6.950000000000006,
-      "backgroundTime": 1.4469999999999992,
-      "lastRecordedTime": 35.325
+      "activeTime": 61.87600000000002,
+      "backgroundTime": 8.48,
+      "lastRecordedTime": 97.28400000000002
     },
     "x.com": {
       "activeTime": 4.9950000000000045,
@@ -304,9 +304,9 @@
       "lastRecordedTime": 306.52699999999993
     },
     "youtube.com": {
-      "activeTime": 205.7349999999999,
-      "backgroundTime": 3479.389000000002,
-      "lastRecordedTime": 4503.406000000003
+      "activeTime": 1328.5410000000004,
+      "backgroundTime": 3718.087000000005,
+      "lastRecordedTime": 5864.910000000006
     },
     "cdn.discordapp.com": {
       "activeTime": 5.000999999999998,
@@ -314,9 +314,54 @@
       "lastRecordedTime": 49.991
     },
     "chatgpt.com": {
-      "activeTime": 104.96400000000006,
-      "backgroundTime": 262.91100000000006,
-      "lastRecordedTime": 369.9980000000001
+      "activeTime": 563.8569999999993,
+      "backgroundTime": 1321.0260000000005,
+      "lastRecordedTime": 1887.0059999999999
+    },
+    "talkwithfrida.com": {
+      "activeTime": 11.591000000000001,
+      "backgroundTime": 0,
+      "lastRecordedTime": 14.263000000000002
+    },
+    "app.talkwithfrida.com": {
+      "activeTime": 179.09700000000007,
+      "backgroundTime": 0,
+      "lastRecordedTime": 181.91900000000007
+    },
+    "play.tailwindcss.com": {
+      "activeTime": 9.286999999999999,
+      "backgroundTime": 0,
+      "lastRecordedTime": 9.994
+    },
+    "tailwindcss.com": {
+      "activeTime": 113.69300000000013,
+      "backgroundTime": 867.2070000000001,
+      "lastRecordedTime": 983.1030000000003
+    },
+    "stackoverflow.com": {
+      "activeTime": 52.08000000000003,
+      "backgroundTime": 81.72099999999999,
+      "lastRecordedTime": 135.14000000000001
+    },
+    "settings": {
+      "activeTime": 34.588,
+      "backgroundTime": 0,
+      "lastRecordedTime": 36.009
+    },
+    "password-manager": {
+      "activeTime": 31.194000000000003,
+      "backgroundTime": 3.912000000000001,
+      "lastRecordedTime": 37.245000000000005
+    },
+    "i.sstatic.net": {
+      "activeTime": 0,
+      "backgroundTime": 0,
+      "lastRecordedTime": 1.336
+    },
+    "reddit.com": {
+      "activeTime": 30.86199999999996,
+      "backgroundTime": 385.0090000000001,
+      "lastRecordedTime": 418.9100000000001
     }
   }
 }

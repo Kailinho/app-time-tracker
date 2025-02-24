@@ -124,20 +124,20 @@
     },
     "2025-02-24": {
       "Electron": {
-        "activeTime": 583.6569999999989,
-        "backgroundTime": 4638.757000000021
+        "activeTime": 1315.5179999999934,
+        "backgroundTime": 12209.967000000077
       },
       "Opera GX Internet Browser": {
-        "activeTime": 512.7249999999985,
-        "backgroundTime": 4945.448000000016
+        "activeTime": 2902.4460000000213,
+        "backgroundTime": 8401.86300000008
       },
       "Visual Studio Code": {
-        "activeTime": 572.1559999999986,
-        "backgroundTime": 4650.258000000025
+        "activeTime": 1817.933999999995,
+        "backgroundTime": 11707.551000000094
       },
       "Discord": {
-        "activeTime": 1449.4149999999993,
-        "backgroundTime": 3772.999000000022
+        "activeTime": 4035.976000000041,
+        "backgroundTime": 9481.444000000121
       },
       "Spotify": {
         "activeTime": 22.159000000000002,
@@ -152,8 +152,20 @@
         "backgroundTime": 5.034
       },
       "Photos.exe": {
-        "activeTime": 11.099,
-        "backgroundTime": 176.32700000000003
+        "activeTime": 263.1439999999998,
+        "backgroundTime": 589.2429999999988
+      },
+      "Credential Manager UI Host": {
+        "activeTime": 2.013,
+        "backgroundTime": 0
+      },
+      "Windows Explorer": {
+        "activeTime": 40.204,
+        "backgroundTime": 26.137
+      },
+      "Video.UI.exe": {
+        "activeTime": 1.011,
+        "backgroundTime": 0
       }
     },
     "2025-02-23": {
