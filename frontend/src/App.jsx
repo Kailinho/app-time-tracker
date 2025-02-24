@@ -5,15 +5,15 @@ import WebsiteUsage from "./pages/WebsiteUsage";
 function App() {
   return (
     <Router>
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white p-4">
+      <div className="flex flex-col gap-6 items-center justify-center min-h-screen bg-gray-900 text-white p-4">
         <h1 className="text-3xl font-bold mb-4">Usage Tracker</h1>
 
         {/* Navigation Tabs */}
-        <div className="flex gap-6 mb-6">
-          <Link to="/" className="px-4 py-2 rounded bg-blue-500 hover:bg-blue-400">
+        <div className="flex gap-4 mb-6">
+          <Link to="/" className="px-4 py-2 text-[#1A1A1A] font-semibold rounded bg-blue-500 hover:bg-blue-400">
             App Usage
           </Link>
-          <Link to="/websites" className="px-4 py-2 rounded bg-blue-500 hover:bg-blue-400">
+          <Link to="/websites" className="px-4 py-2 text-[#1A1A1A] font-semibold rounded bg-blue-500 hover:bg-blue-400">
             Website Usage
           </Link>
         </div>

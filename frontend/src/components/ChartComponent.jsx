@@ -5,15 +5,13 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } fro
  * A reusable bar chart component for visualizing usage data.
  *
  * @param {Array} data - The dataset to be displayed in the chart.
- * @param {string} title - The title for the chart.
  * @param {string} activeLabel - Label for active time.
  * @param {string} backgroundLabel - Label for background time.
  * @param {boolean} hasBackgroundTime - Whether background time should be displayed.
  */
-function ChartComponent({ data, title, activeLabel, backgroundLabel, hasBackgroundTime }) {
+function ChartComponent({ data,  activeLabel, backgroundLabel, hasBackgroundTime }) {
   return (
     <div className="mb-20">
-      <h2 className="text-xl font-semibold mt-8">{title}</h2>
       <ResponsiveContainer width="90%" height={350}>
         <BarChart data={data} barSize={data.length === 1 ? 30 : undefined}>
           <XAxis dataKey="name" angle={-45} textAnchor="end" interval={0} />

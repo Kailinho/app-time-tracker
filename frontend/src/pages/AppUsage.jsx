@@ -77,7 +77,7 @@ function AppUsage() {
 
   return (
     <div className="p-6">
-      <h1 className="text-3xl font-bold mb-4">App Usage</h1>
+      <h1 className="text-3xl font-semibold mb-4">App Usage</h1>
       <ReportToggle reportPeriod={reportPeriod} setReportPeriod={setReportPeriod} />
       <ChartComponent data={appChartData} title="Application Usage" activeLabel="Active Time" backgroundLabel="Background Time" hasBackgroundTime={true}/>
       <DataTable data={appChartData} />

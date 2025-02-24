@@ -4,12 +4,11 @@ import PropTypes from "prop-types";
  * Reusable data table component for displaying app/website usage data.
  *
  * @param {Object[]} data - The processed table data.
- * @param {string} title - The title of the table (e.g., "Application Usage", "Website Usage").
  */
-function DataTable({ data, title }) {
+function DataTable({ data }) {
   return (
     <div className="w-3/4 overflow-x-auto">
-      <h2 className="text-xl font-semibold mt-8">{title}</h2>
+      <h2 className="text-xl font-semibold mt-8">Detailed Usage Table</h2>
       <table className="border-collapse border border-gray-400 w-full mt-4">
         <thead>
           <tr className="bg-gray-700">
