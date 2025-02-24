@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (data && data.websiteUsage) {
       Object.entries(data.websiteUsage)
-        .filter(([_, seconds]) => seconds >= 120) // Only display websites used for more than 2 minutes
+        .filter(([_, seconds]) => seconds >= 600) // Only display websites used for more than 10 minutes
         .forEach(([domain, seconds]) => {
           // Create a new row for each tracked website
           const row = document.createElement("tr");

@@ -52,6 +52,16 @@ function saveWebsiteData() {
 }
 
 /**
+ * Gets the current date in YYYY-MM-DD format based on the user's local timezone.
+ * This ensures that tracking data aligns with the user's local time.
+ * @returns {string} - The current date in local time.
+ */
+const getCurrentDate = () => {
+  const now = new Date();
+  return now.toLocaleDateString("en-CA"); // Format: YYYY-MM-DD
+};
+
+/**
  * Initialize Electron application and create the main window.
  */
 app.whenReady().then(() => {
@@ -99,12 +109,6 @@ const formatTime = (seconds) => {
   return `${h}:${m}:${s}`;
 };
 
-/**
- * Get the current date in YYYY-MM-DD format.
- * @returns {string} - The formatted date string.
- */
-const getCurrentDate = () => new Date().toISOString().split("T")[0];
-
 let lastUpdateTime = Date.now();
 
 /**
@@ -151,33 +155,67 @@ setInterval(async () => {
 /**
  * Start the Express server for handling website tracking data.
  */
+/**
+ * Start the Express server for handling website tracking data.
+ */
 function startExpressServer() {
   const expressApp = express();
   const PORT = 3001;
 
-  expressApp.use(cors()); // Enable CORS for cross-origin requests
-  expressApp.use(express.json()); // Parse incoming JSON data
+  expressApp.use(cors());
+  expressApp.use(express.json());
 
   /**
    * Handle incoming website tracking data from the browser extension.
-   * This data is stored and sent to the frontend for visualization.
    */
-  expressApp.post("/track", (req, res) => {
-    console.log("Website tracking data updated");
-
+  expressApp.post("/track", async (req, res) => {
     const today = getCurrentDate();
-    websiteUsage[today] = req.body; // Store received website tracking data
+    const activeWin = await activeWindow();
 
-    saveWebsiteData(); // Persist website tracking data
-    res.json({ message: "Website data saved successfully!" });
+    if (!websiteUsage[today]) websiteUsage[today] = {};
 
-    // Send updated website tracking data to the frontend
+    Object.entries(req.body).forEach(([domain, newTime]) => {
+      if (!websiteUsage[today][domain]) {
+        websiteUsage[today][domain] = { activeTime: 0, backgroundTime: 0, lastRecordedTime: newTime };
+        return;
+      }
+
+      let lastTime = websiteUsage[today][domain].lastRecordedTime;
+      if (isNaN(lastTime)) {
+        websiteUsage[today][domain].lastRecordedTime = newTime;
+        return;
+      }
+
+      let elapsedTime = newTime - lastTime;
+
+      if (elapsedTime > 0 && elapsedTime < 600) {
+        const isBrowserActive =
+          activeWin &&
+          ["chrome", "opera", "brave", "firefox", "edge"].some((name) =>
+            activeWin.owner.name.toLowerCase().includes(name)
+          );
+
+        if (isBrowserActive) {
+          websiteUsage[today][domain].activeTime += elapsedTime;
+          console.log(`📊 ${domain}: +${Math.floor(elapsedTime)}s Active time`);
+        } else {
+          websiteUsage[today][domain].backgroundTime += elapsedTime;
+          console.log(`📊 ${domain}: +${Math.floor(elapsedTime)}s Background time`);
+        }
+
+        websiteUsage[today][domain].lastRecordedTime = newTime;
+      }
+    });
+
+    saveWebsiteData();
+
     if (mainWindow) {
       mainWindow.webContents.send("update-website-report", websiteUsage);
     }
+
+    res.json({ message: "Website data processed and sent to Electron." });
   });
 
-  // Start the Express server on port 3001
   expressApp.listen(PORT, () => {
     console.log(`Electron backend listening on port ${PORT}`);
   });

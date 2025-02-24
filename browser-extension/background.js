@@ -1,16 +1,30 @@
-let activeDomain = ""; // Stores the currently active website domain
-let lastUpdateTime = Date.now(); // Tracks last time update occurred
-let websiteUsage = {}; // Stores accumulated website usage data
-const SERVER_URL = "http://localhost:3001/track"; // URL for sending data to Electron backend
+let activeDomain = "";
+let lastUpdateTime = Date.now();
+let websiteUsage = {};
+const SERVER_URL = "http://localhost:3001/track";
 
 /**
- * Load stored website usage data from Chrome's local storage on extension startup.
- * This ensures that previously tracked data persists across browser restarts.
+ * Gets the current date in YYYY-MM-DD format based on the user's local timezone.
+ * This ensures that tracking data aligns with the user's local time.
+ * @returns {string} - The current date in local time.
  */
-chrome.storage.local.get("websiteUsage", (data) => {
+const getCurrentDate = () => {
+  const now = new Date();
+  return now.toLocaleDateString("en-CA"); // Format: YYYY-MM-DD
+};
+
+// Store the last recorded date to detect day changes
+let lastRecordedDate = getCurrentDate();
+
+// Load stored data from `chrome.storage.local` on startup
+chrome.storage.local.get(["websiteUsage", "lastRecordedDate"], (data) => {
   if (data.websiteUsage) {
     websiteUsage = data.websiteUsage;
     console.log("Loaded saved website usage data:", websiteUsage);
+  }
+
+  if (data.lastRecordedDate) {
+    lastRecordedDate = data.lastRecordedDate;
   }
 });
 
@@ -28,24 +42,44 @@ const getDomain = (url) => {
 };
 
 /**
+ * Checks if midnight has passed and resets website tracking data if necessary.
+ */
+const checkForMidnightReset = () => {
+  const currentDate = getCurrentDate();
+
+  if (currentDate !== lastRecordedDate) {
+    console.log("Midnight detected. Resetting website usage data.");
+
+    websiteUsage = {}; // Reset tracking data
+    lastRecordedDate = currentDate; // Update last recorded date
+
+    // Save the reset data to Chrome storage
+    chrome.storage.local.set({ websiteUsage, lastRecordedDate }, () => {
+      console.log("Website usage data reset successfully.");
+    });
+  }
+};
+
+/**
  * Updates the website usage time for the currently active domain.
  * Ensures that time is not duplicated and persists the updated usage data.
  */
 const updateWebsiteTime = () => {
+  checkForMidnightReset(); // Ensure data resets at midnight
+
   const now = Date.now();
   const elapsedTime = (now - lastUpdateTime) / 1000; // Convert ms to seconds
   lastUpdateTime = now;
 
   if (!activeDomain) return;
 
-  // Retrieve latest stored website usage data to prevent duplication
   chrome.storage.local.get("websiteUsage", (data) => {
     let storedData = data.websiteUsage || {};
 
     // Accumulate elapsed time for the currently active domain
     storedData[activeDomain] = (storedData[activeDomain] || 0) + elapsedTime;
 
-    // Save the updated usage data back to Chrome storage
+    // Save the updated usage data
     chrome.storage.local.set({ websiteUsage: storedData }, () => {
       websiteUsage = storedData;
       console.log(`Updated ${activeDomain}: +${Math.floor(elapsedTime)} seconds`);
@@ -92,28 +126,35 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
 /**
  * Sends stored website tracking data to the Electron backend at regular intervals.
- * Only sends websites with usage time exceeding 5 minutes (300 seconds).
+ * Electron will categorize active vs. background time.
  */
 const sendDataToElectron = () => {
+  checkForMidnightReset(); // Ensure data resets before sending
+
   chrome.storage.local.get("websiteUsage", (data) => {
     if (data && data.websiteUsage) {
-      const filteredData = Object.fromEntries(
-        Object.entries(data.websiteUsage).filter(([_, seconds]) => seconds >= 300)
-      );
+      console.log("📤 Attempting to send website tracking data to Electron:", data.websiteUsage);
 
-      if (Object.keys(filteredData).length > 0) {
-        fetch(SERVER_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(filteredData),
-        }).catch((error) => console.error("Error sending data to Electron:", error));
-      }
+      fetch(SERVER_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data.websiteUsage),
+      })
+        .then((res) => res.json())
+        .then((response) => console.log("✅ Successfully sent data to Electron:", response))
+        .catch((error) => console.error("❌ Error sending data to Electron:", error));
+    } else {
+      console.log("⚠️ No website data available to send.");
     }
   });
 };
 
+
+// Periodically check for midnight reset every minute
+setInterval(checkForMidnightReset, 60000);
+
 // Update website usage time every 30 seconds
-setInterval(updateWebsiteTime, 30000);
+setInterval(updateWebsiteTime, 5000);
 
 // Send website usage data to Electron every 30 seconds
-setInterval(sendDataToElectron, 30000);
+setInterval(sendDataToElectron, 5000);
