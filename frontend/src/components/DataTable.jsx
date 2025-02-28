@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
  */
 function DataTable({ data }) {
   return (
-    <div className="w-3/4 overflow-x-auto">
+    <div className="w-full overflow-x-auto">
       <h2 className="text-xl font-semibold mt-8">Detailed Usage Table</h2>
       <table className="border-collapse border border-gray-400 w-full mt-4">
         <thead>
@@ -21,7 +21,7 @@ function DataTable({ data }) {
           {data.length === 0 ? (
             <tr className="bg-gray-800">
               <td colSpan="3" className="border border-gray-500 p-2 text-center">
-                No data available.
+                No data available/Waiting for data to load.
               </td>
             </tr>
           ) : (

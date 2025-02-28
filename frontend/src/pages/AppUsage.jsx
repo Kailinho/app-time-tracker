@@ -7,12 +7,19 @@ import ReportToggle from "../components/ReportToggle";
  * AppUsage component that tracks application usage statistics.
  */
 function AppUsage() {
-  const [usageReport, setUsageReport] = useState({});
+  const [usageReport, setUsageReport] = useState(() => {
+    // Load previous data from localStorage if available
+    const storedData = localStorage.getItem("appUsageData");
+    return storedData ? JSON.parse(storedData) : {};
+  });
   const [reportPeriod, setReportPeriod] = useState(1);
 
   useEffect(() => {
     if (window.electron) {
-      window.electron.onUpdateUsageReport((data) => setUsageReport({ ...data }));
+      window.electron.onUpdateUsageReport((data) => {
+        setUsageReport(data);
+        localStorage.setItem("appUsageData", JSON.stringify(data)); // Store latest data
+      });
     }
   }, []);
 
@@ -79,7 +86,12 @@ function AppUsage() {
     <div className="p-6">
       <h1 className="text-3xl font-semibold mb-4">App Usage</h1>
       <ReportToggle reportPeriod={reportPeriod} setReportPeriod={setReportPeriod} />
-      <ChartComponent data={appChartData} title="Application Usage" activeLabel="Active Time" backgroundLabel="Background Time" hasBackgroundTime={true}/>
+      <ChartComponent 
+        data={appChartData}
+        activeLabel="Active Time" 
+        backgroundLabel="Background Time" 
+        hasBackgroundTime={true} 
+      />
       <DataTable data={appChartData} />
     </div>
   );
