@@ -335,8 +335,8 @@
     },
     "tailwindcss.com": {
       "activeTime": 113.69300000000013,
-      "backgroundTime": 867.2070000000001,
-      "lastRecordedTime": 983.1030000000003
+      "backgroundTime": 872.2070000000001,
+      "lastRecordedTime": 988.1030000000003
     },
     "stackoverflow.com": {
       "activeTime": 52.08000000000003,
@@ -362,6 +362,178 @@
       "activeTime": 30.86199999999996,
       "backgroundTime": 385.0090000000001,
       "lastRecordedTime": 418.9100000000001
+    }
+  },
+  "2025-02-27": {
+    "app.skillsyncer.com": {
+      "activeTime": 0,
+      "backgroundTime": 0,
+      "lastRecordedTime": 1067.7559999999996
+    },
+    "auth.uber.com": {
+      "activeTime": 0,
+      "backgroundTime": 0,
+      "lastRecordedTime": 23.658
+    },
+    "bilibili.com": {
+      "activeTime": 0,
+      "backgroundTime": 0,
+      "lastRecordedTime": 60.004
+    },
+    "bleach.fandom.com": {
+      "activeTime": 0,
+      "backgroundTime": 0,
+      "lastRecordedTime": 9.909
+    },
+    "cdn.discordapp.com": {
+      "activeTime": 0,
+      "backgroundTime": 0,
+      "lastRecordedTime": 485.00199999999995
+    },
+    "chatgpt.com": {
+      "activeTime": 715.7670000000003,
+      "backgroundTime": 2812.144000000004,
+      "lastRecordedTime": 4494.7230000000045
+    },
+    "docs.google.com": {
+      "activeTime": 0,
+      "backgroundTime": 0,
+      "lastRecordedTime": 563.6589999999999
+    },
+    "drive.google.com": {
+      "activeTime": 0,
+      "backgroundTime": 0,
+      "lastRecordedTime": 40
+    },
+    "google.com": {
+      "activeTime": 59.36499999999995,
+      "backgroundTime": 60.589,
+      "lastRecordedTime": 386.67599999999993
+    },
+    "gxcorner.games": {
+      "activeTime": 0,
+      "backgroundTime": 0,
+      "lastRecordedTime": 65.341
+    },
+    "harringtonhousing.com": {
+      "activeTime": 0,
+      "backgroundTime": 0,
+      "lastRecordedTime": 10.012
+    },
+    "jobs.bell.ca": {
+      "activeTime": 0,
+      "backgroundTime": 0,
+      "lastRecordedTime": 210.237
+    },
+    "kailinho.github.io": {
+      "activeTime": 0,
+      "backgroundTime": 0,
+      "lastRecordedTime": 149.39200000000002
+    },
+    "linkedin.com": {
+      "activeTime": 0,
+      "backgroundTime": 0,
+      "lastRecordedTime": 1551.061
+    },
+    "mail.google.com": {
+      "activeTime": 0,
+      "backgroundTime": 0,
+      "lastRecordedTime": 1483.4450000000008
+    },
+    "management.harringtonhousing.com": {
+      "activeTime": 0,
+      "backgroundTime": 0,
+      "lastRecordedTime": 14.991999999999999
+    },
+    "mui.com": {
+      "activeTime": 32.401000000000124,
+      "backgroundTime": 0,
+      "lastRecordedTime": 309.2330000000002
+    },
+    "reddit.com": {
+      "activeTime": 13.347999999999985,
+      "backgroundTime": 24.994999999999976,
+      "lastRecordedTime": 154.34699999999995
+    },
+    "security.cse.iitk.ac.in": {
+      "activeTime": 0,
+      "backgroundTime": 0,
+      "lastRecordedTime": 3.944
+    },
+    "simplilearn.com": {
+      "activeTime": 0,
+      "backgroundTime": 0,
+      "lastRecordedTime": 154.87900000000002
+    },
+    "skillsacademy.iitm.ac.in": {
+      "activeTime": 0,
+      "backgroundTime": 0,
+      "lastRecordedTime": 65.047
+    },
+    "startpageshared": {
+      "activeTime": 18.10499999999999,
+      "backgroundTime": 0,
+      "lastRecordedTime": 230.41100000000003
+    },
+    "studio.youtube.com": {
+      "activeTime": 0,
+      "backgroundTime": 0,
+      "lastRecordedTime": 27.255
+    },
+    "text-compare.com": {
+      "activeTime": 0,
+      "backgroundTime": 0,
+      "lastRecordedTime": 182.31000000000003
+    },
+    "twitch.tv": {
+      "activeTime": 0,
+      "backgroundTime": 0,
+      "lastRecordedTime": 28.905000000000005
+    },
+    "ubereats.com": {
+      "activeTime": 0,
+      "backgroundTime": 0,
+      "lastRecordedTime": 1077.527999999999
+    },
+    "x.com": {
+      "activeTime": 0,
+      "backgroundTime": 0,
+      "lastRecordedTime": 5535.038000000003
+    },
+    "youtube.com": {
+      "activeTime": 0,
+      "backgroundTime": 0,
+      "lastRecordedTime": 12382.860999999999
+    },
+    "stackblitz.com": {
+      "activeTime": 16.991,
+      "backgroundTime": 0,
+      "lastRecordedTime": 21.091
+    },
+    "stackoverflow.com": {
+      "activeTime": 55.109,
+      "backgroundTime": 31.913,
+      "lastRecordedTime": 89.387
+    },
+    "community.openai.com": {
+      "activeTime": 9.459,
+      "backgroundTime": 0,
+      "lastRecordedTime": 10.003
+    },
+    "flowbite.com": {
+      "activeTime": 147.79499999999996,
+      "backgroundTime": 54.277000000000015,
+      "lastRecordedTime": 202.22199999999998
+    },
+    "canva.com": {
+      "activeTime": 37.551999999999964,
+      "backgroundTime": 127.30100000000002,
+      "lastRecordedTime": 165.00099999999998
+    },
+    "extensions": {
+      "activeTime": 0,
+      "backgroundTime": 1.1679999999999993,
+      "lastRecordedTime": 5.281999999999999
     }
   }
 }

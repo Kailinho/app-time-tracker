@@ -150,7 +150,7 @@ setInterval(async () => {
   } catch (error) {
     console.error("Error fetching windows:", error);
   }
-}, 1000);
+}, 15000);
 
 /**
  * Start the Express server for handling website tracking data.

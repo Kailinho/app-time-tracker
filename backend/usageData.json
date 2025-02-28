@@ -124,20 +124,20 @@
     },
     "2025-02-24": {
       "Electron": {
-        "activeTime": 1315.5179999999934,
-        "backgroundTime": 12209.967000000077
+        "activeTime": 1318.5369999999934,
+        "backgroundTime": 12211.984000000079
       },
       "Opera GX Internet Browser": {
         "activeTime": 2902.4460000000213,
-        "backgroundTime": 8401.86300000008
+        "backgroundTime": 8406.899000000081
       },
       "Visual Studio Code": {
-        "activeTime": 1817.933999999995,
-        "backgroundTime": 11707.551000000094
+        "activeTime": 1819.9509999999948,
+        "backgroundTime": 11709.560000000094
       },
       "Discord": {
         "activeTime": 4035.976000000041,
-        "backgroundTime": 9481.444000000121
+        "backgroundTime": 9486.480000000123
       },
       "Spotify": {
         "activeTime": 22.159000000000002,
@@ -192,6 +192,24 @@
       "Windows Explorer": {
         "activeTime": 0,
         "backgroundTime": 1361.1320000000017
+      }
+    },
+    "2025-02-27": {
+      "Electron": {
+        "activeTime": 1194.712999999996,
+        "backgroundTime": 2965.9489999999973
+      },
+      "Visual Studio Code": {
+        "activeTime": 1653.0380000000007,
+        "backgroundTime": 2507.6239999999952
+      },
+      "Opera GX Internet Browser": {
+        "activeTime": 1165.3029999999965,
+        "backgroundTime": 2994.3500000000045
+      },
+      "Discord": {
+        "activeTime": 117.507,
+        "backgroundTime": 3363.005000000008
       }
     }
   }

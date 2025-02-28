@@ -153,8 +153,8 @@ const sendDataToElectron = () => {
 // Periodically check for midnight reset every minute
 setInterval(checkForMidnightReset, 60000);
 
-// Update website usage time every 30 seconds
-setInterval(updateWebsiteTime, 5000);
+// Update website usage time every 15 seconds
+setInterval(updateWebsiteTime, 15000);
 
-// Send website usage data to Electron every 30 seconds
-setInterval(sendDataToElectron, 5000);
+// Send website usage data to Electron every 15 seconds
+setInterval(sendDataToElectron, 15000);

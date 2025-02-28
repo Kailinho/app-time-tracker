@@ -4,15 +4,19 @@ import DataTable from "../components/DataTable";
 import ReportToggle from "../components/ReportToggle";
 
 function WebsiteUsage() {
-  const [websiteUsage, setWebsiteUsage] = useState({});
+  const [websiteUsage, setWebsiteUsage] = useState(() => {
+    // Load previous data from localStorage
+    const storedData = localStorage.getItem("websiteUsageData");
+    return storedData ? JSON.parse(storedData) : {};
+  });
   const [reportPeriod, setReportPeriod] = useState(1);
 
   // Listen for updates from Electron backend
   useEffect(() => {
     if (window.electron) {
       window.electron.onUpdateWebsiteReport((data) => {
-        console.log("🔄 Updating website usage:", data);
         setWebsiteUsage({ ...data });
+        localStorage.setItem("websiteUsageData", JSON.stringify(data));
       });
     }
   }, []);
@@ -102,7 +106,8 @@ const getChartData = (data, period) => {
         data={websiteChartData} 
         title="Website Usage" 
         activeLabel="Active Time" 
-        hasBackgroundTime={true} 
+        backgroundLabel="Background Time" 
+        hasBackgroundTime={false} 
       />
 
       {/*  Table displaying detailed website usage */}
