@@ -114,25 +114,20 @@ function WebsiteUsage() {
 	const websiteChartData = getChartData(websiteUsage, reportPeriod)
 
 	return (
-		<div className='p-6'>
-			<h1 className='text-3xl font-bold mb-4'>Website Usage</h1>
-
-			{/*  Period selection (Daily, Weekly, Monthly) */}
-			<ReportToggle
-				reportPeriod={reportPeriod}
-				setReportPeriod={setReportPeriod}
-			/>
-
-			{/*  Chart displaying website usage */}
+		<div className='p-6 flex flex-col gap-6 h-full'>
+			<div className='flex items-center justify-between mb-2'>
+				<h1 className='text-3xl font-bold'>Website Usage</h1>
+				<ReportToggle
+					reportPeriod={reportPeriod}
+					setReportPeriod={setReportPeriod}
+				/>
+			</div>
 			<ChartComponent
 				data={websiteChartData}
-				title='Website Usage'
 				activeLabel='Active Time'
 				backgroundLabel='Background Time'
 				hasBackgroundTime={false}
 			/>
-
-			{/*  Table displaying detailed website usage */}
 			<DataTable data={websiteChartData} />
 		</div>
 	)

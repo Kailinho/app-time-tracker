@@ -95,12 +95,14 @@ function AppUsage() {
 	const appChartData = getChartData(usageReport, reportPeriod)
 
 	return (
-		<div className='p-6'>
-			<h1 className='text-3xl font-semibold mb-4'>App Usage</h1>
-			<ReportToggle
-				reportPeriod={reportPeriod}
-				setReportPeriod={setReportPeriod}
-			/>
+		<div className='p-6 flex flex-col gap-6 h-full'>
+			<div className='flex items-center justify-between mb-2'>
+				<h1 className='text-3xl font-semibold'>App Usage</h1>
+				<ReportToggle
+					reportPeriod={reportPeriod}
+					setReportPeriod={setReportPeriod}
+				/>
+			</div>
 			<ChartComponent
 				data={appChartData}
 				activeLabel='Active Time'

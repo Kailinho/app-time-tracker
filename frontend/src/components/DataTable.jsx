@@ -1,4 +1,12 @@
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types'
+import {
+	Table,
+	TableHeader,
+	TableBody,
+	TableRow,
+	TableHead,
+	TableCell,
+} from '@/components/ui/table'
 
 /**
  * Reusable data table component for displaying app/website usage data.
@@ -6,49 +14,54 @@ import PropTypes from "prop-types";
  * @param {Object[]} data - The processed table data.
  */
 function DataTable({ data }) {
-  return (
-    <div className="w-full overflow-x-auto">
-      <h2 className="text-xl font-semibold mt-8">Detailed Usage Table</h2>
-      <table className="border-collapse border border-gray-400 w-full mt-4">
-        <thead>
-          <tr className="bg-gray-700">
-            <th className="border border-gray-500 p-2">Name</th>
-            <th className="border border-gray-500 p-2">Active Time</th>
-            <th className="border border-gray-500 p-2">Background Time</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.length === 0 ? (
-            <tr className="bg-gray-800">
-              <td colSpan="3" className="border border-gray-500 p-2 text-center">
-                No data available/Waiting for data to load.
-              </td>
-            </tr>
-          ) : (
-            data.map((row, index) => (
-              <tr key={index} className="bg-gray-800">
-                <td className="border border-gray-500 p-2">{row.name}</td>
-                <td className="border border-gray-500 p-2">{row.activeTimeLabel || "0h 0m"}</td>
-                <td className="border border-gray-500 p-2">{row.backgroundTimeLabel || "-"}</td>
-              </tr>
-            ))
-          )}
-        </tbody>
-      </table>
-    </div>
-  );
+	return (
+		<div className='w-full overflow-x-auto'>
+			<h2 className='text-xl font-semibold mt-8 text-[#4361EE]'>
+				Detailed Usage Table
+			</h2>
+			<Table className='mt-4'>
+				<TableHeader>
+					<TableRow className='border-b'>
+						<TableHead>Name</TableHead>
+						<TableHead>Active Time</TableHead>
+						<TableHead>Background Time</TableHead>
+					</TableRow>
+				</TableHeader>
+				<TableBody>
+					{data.length === 0 ? (
+						<TableRow>
+							<TableCell colSpan={3} className='text-center'>
+								No data available/Waiting for data to load.
+							</TableCell>
+						</TableRow>
+					) : (
+						data.map((row, index) => (
+							<TableRow key={index} className='border-0'>
+								<TableCell>{row.name}</TableCell>
+								<TableCell style={{ color: '#3A0CA3' }}>
+									{row.activeTimeLabel || '0h 0m'}
+								</TableCell>
+								<TableCell style={{ color: '#D4C2FC' }}>
+									{row.backgroundTimeLabel || '-'}
+								</TableCell>
+							</TableRow>
+						))
+					)}
+				</TableBody>
+			</Table>
+		</div>
+	)
 }
 
 // Prop validation to avoid runtime errors
 DataTable.propTypes = {
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      activeTimeLabel: PropTypes.string,
-      backgroundTimeLabel: PropTypes.string,
-    })
-  ).isRequired,
-  title: PropTypes.string.isRequired,
-};
+	data: PropTypes.arrayOf(
+		PropTypes.shape({
+			name: PropTypes.string.isRequired,
+			activeTimeLabel: PropTypes.string,
+			backgroundTimeLabel: PropTypes.string,
+		})
+	).isRequired,
+}
 
-export default DataTable;
+export default DataTable
